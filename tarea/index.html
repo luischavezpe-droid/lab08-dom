@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Notas de Estudiantes</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: 20px auto; padding: 0 15px; }
+    .form-group { margin-bottom: 12px; }
+    label { display: block; margin-bottom: 4px; font-weight: bold; }
+    input { width: 100%; padding: 8px; box-sizing: border-box; }
+    button { padding: 8px 16px; cursor: pointer; margin-top: 5px; }
+    .error-msg { color: #d9534f; font-size: 0.9em; margin-top: 4px; display: none; }
+    ul { list-style: none; padding: 0; }
+    li { background: #f4f4f4; margin: 6px 0; padding: 10px; display: flex; justify-content: space-between; align-items: center; border-left: 5px solid #ccc; }
+    li.aprobado { border-left-color: #5cb85c; }
+    li.desaprobado { border-left-color: #d9534f; }
+    .btn-borrar { background: #d9534f; color: white; border: none; padding: 4px 8px; border-radius: 3px; }
+    .resumen { background: #eef; padding: 10px; margin-top: 15px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+  <h1>Registro de Notas de Estudiantes</h1>
+
+  <form id="formEstudiante">
+    <div class="form-group">
+      <label for="nombre">Nombre del Estudiante:</label>
+      <input type="text" id="nombre" placeholder="Ej. Ana García" required>
+    </div>
+
+    <div class="form-group">
+      <label for="curso">Curso:</label>
+      <input type="text" id="curso" placeholder="Ej. Programación Web" required>
+    </div>
+
+    <div class="form-group">
+      <label for="nota">Nota (0 a 20):</label>
+      <input type="number" id="nota" min="0" max="20" step="0.1" placeholder="Ej. 15.5" required>
+      <p id="errorNota" class="error-msg">⚠️ La nota debe estar en el rango de 0 a 20.</p>
+    </div>
+
+    <button type="submit" id="btnGuardar">Registrar Estudiante</button>
+  </form>
+
+  <h2>Lista de Estudiantes</h2>
+  <ul id="listaEstudiantes"></ul>
+
+  <div class="resumen">
+    <strong>Promedio General:</strong> <span id="promedioGeneral">0.00</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
